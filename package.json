@@ -1,0 +1,16 @@
+{
+  "name": "02-devjobs",
+  "version": "1.0.0",
+  "description": "Portal de Empleo demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index" 
+  },
+  "author": "Omar Elias Peralta Ticona",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "nodemon": "^2.0.6"
+  }
+}
