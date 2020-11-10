@@ -4,13 +4,20 @@
   "description": "Portal de Empleo demo",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index" 
+    "start": "nodemon ./index"
   },
   "author": "Omar Elias Peralta Ticona",
   "license": "ISC",
   "dependencies": {
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
-    "nodemon": "^2.0.6"
+    "express-session": "^1.17.1",
+    "mongoose": "^5.10.13",
+    "nodemon": "^2.0.6",
+    "shortid": "^2.2.16",
+    "slug": "^4.0.2"
   }
 }
