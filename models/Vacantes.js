@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const sluf = require('slug');
+const slug = require('slug');
 const shortId = require('shortId');
 
 const vacantesSchema = new mongoose.Schema({
@@ -33,7 +33,7 @@ const vacantesSchema = new mongoose.Schema({
     type: String,
     lowercase: true,
   },
-  skill: [String],
+  skills: [String],
   candidatos: [
     {
       nombre: String,
