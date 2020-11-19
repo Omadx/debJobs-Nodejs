@@ -44,3 +44,19 @@ exports.formEditarVacantes = async (req, res, next) => {
     nombrePagina: `Editar - ${vacante.titulo}`,
   });
 };
+
+exports.editarVacantes = async (req, res) => {
+  const vacanteActualizada = req.body;
+
+  vacanteActualizada.skills = req.body.skills.split(',');
+
+  const vacante = await Vacante.findOneAndUpdate(
+    { url: req.params.url },
+    vacanteActualizada,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+  res.redirect(`/vacantes/${vacante.url}`);
+};
