@@ -37,7 +37,7 @@ exports.validarRegistro = async (req, res, next) => {
   await Promise.all(rules.map((validation) => validation.run(req)));
   const errores = validationResult(req);
   //si hay errores
-  if (errores) {
+  if (!errores.isEmpty()) {
     req.flash(
       'error',
       errores.array().map((error) => error.msg)
@@ -60,9 +60,15 @@ exports.crearUsuario = async (req, res, next) => {
   const usuario = new Usuarios(req.body);
 
   //console.log(usuario);
-  const nuevoUsuario = await usuario.save();
+  //const nuevoUsuario = await usuario.save();
 
-  if (!nuevoUsuario) return next();
-
-  res.redirect('/iniciar-sesion');
+  //if (!nuevoUsuario) return next();
+  try {
+    await usuario.save();
+    res.redirect('/iniciar-sesion');
+  } catch (error) {
+    req.flash('error', error);
+    res.redirect('/crear-cuenta');
+  }
+  //res.redirect('/iniciar-sesion');
 };
